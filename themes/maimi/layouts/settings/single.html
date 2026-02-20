@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div class="settings-page">
+    <h1>⚙️ Settings</h1>
+    <p class="page-desc">Manage your learning progress data. All data is stored in this browser only.</p>
+
+    <div class="settings-card">
+        <h2>📤 Export Progress</h2>
+        <p>Download your entire progress history as a JSON file. Keep it as a backup or move it to another browser.</p>
+        <div class="settings-actions">
+            <button class="btn btn-gold" id="export-btn">⬇ Export JSON</button>
+        </div>
+        <div class="alert success" id="export-alert">✓ Progress exported successfully!</div>
+    </div>
+
+    <div class="settings-card">
+        <h2>📥 Import Progress</h2>
+        <p>Upload a previously exported JSON file to restore your progress.</p>
+        <div class="settings-actions">
+            <label class="btn btn-ghost" for="import-file-input" style="cursor:pointer;">📁 Choose JSON File</label>
+            <input type="file" id="import-file-input" class="import-file-input" accept=".json" />
+        </div>
+        <div class="alert success" id="import-success">✓ Progress imported! Reload the page to see changes.</div>
+        <div class="alert error" id="import-error">✗ Invalid file. Please upload a valid MaiMi progress JSON.</div>
+    </div>
+
+    <div class="settings-card danger-zone">
+        <h2>🗑 Danger Zone</h2>
+        <p>Permanently delete all your progress data from this browser. This cannot be undone.</p>
+        <div class="settings-actions">
+            <button class="btn btn-danger" id="clear-btn">Clear All Progress</button>
+        </div>
+        <div class="alert success" id="clear-alert">✓ All progress cleared.</div>
+    </div>
+</div>
+
+{{ block "scripts" . }}
+<script src="/js/settings.js"></script>
+{{ end }}
+{{ end }}

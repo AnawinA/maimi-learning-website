@@ -1,0 +1,36 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "MaiMi"
+theme = "maimi"
+enableRobotsTXT = true
+enableGitInfo = false
+
+[params]
+  description = "Learn smarter. Level up daily."
+  author = "MaiMi"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Courses"
+    url = "/courses/"
+    weight = 2
+  [[menu.main]]
+    name = "Profile"
+    url = "/profile/"
+    weight = 3
+  [[menu.main]]
+    name = "Settings"
+    url = "/settings/"
+    weight = 4
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false

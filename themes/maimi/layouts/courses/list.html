@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ $allLessons := where (where .Site.Pages "Section" "courses") "Kind" "page" }}
+
+<section class="course-header">
+    <h1>📚 {{ .Title }}</h1>
+    <p>{{ with .Description }}{{ . }}{{ else }}Work through every lesson at your own pace. Your progress is saved
+        automatically.{{ end }}</p>
+</section>
+
+<div class="course-map" id="course-map">
+    {{ range $index, $lesson := sort $allLessons "Params.weight" "asc" }}
+    {{ if $index }}
+    <div class="map-connector"></div>
+    {{ end }}
+    <a class="lesson-node" href="{{ .RelPermalink }}" data-lesson-id="{{ .Params.lessonId | default .File.UniqueID }}"
+        data-xp="{{ .Params.xp | default 10 }}" id="node-{{ .Params.lessonId | default .File.UniqueID }}">
+        <div class="lesson-node-icon">{{ .Params.icon | default "📝" }}</div>
+        <span class="lesson-node-label">{{ .Title }}</span>
+        <span class="lesson-node-xp">+{{ .Params.xp | default 10 }} XP</span>
+    </a>
+    {{ end }}
+</div>
+
+{{ block "scripts" . }}
+<script src="/js/course-map.js"></script>
+{{ end }}
+{{ end }}

@@ -1,0 +1,20 @@
+<nav class="navbar" id="navbar">
+    <div class="navbar-container">
+        <a class="navbar-brand" href="/">
+            <img src="" alt="MaiMi Logo" class="navbar-logo" id="navbar-logo" />
+            <span class="navbar-brand-text">MaiMi</span>
+        </a>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="navbar-nav" id="navbar-nav">
+            {{ range .Site.Menus.main }}
+            <li class="nav-item">
+                <a class="nav-link {{ if eq $.RelPermalink .URL }}active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</nav>

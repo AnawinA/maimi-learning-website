@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="profile-page">
+    <div class="profile-header">
+        <div class="profile-avatar">🎓</div>
+        <div class="profile-info">
+            <h1>My Progress</h1>
+            <p>Your learning journey — stored in this browser.</p>
+        </div>
+    </div>
+
+    <div class="stats-grid" id="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="stat-completed">0</div>
+            <div class="stat-label">Lessons Done</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="stat-xp">0</div>
+            <div class="stat-label">Total XP</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="stat-streak">🔥0</div>
+            <div class="stat-label">Day Streak</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="stat-pct">0%</div>
+            <div class="stat-label">Course Progress</div>
+        </div>
+    </div>
+
+    <h2 class="profile-section-title">Completed Lessons</h2>
+    <div class="completed-list" id="completed-list">
+        <p class="empty-state" id="profile-empty">
+            No lessons completed yet. <a href="/courses/">Start learning! →</a>
+        </p>
+    </div>
+</div>
+
+{{ block "scripts" . }}
+{{ $totalLessons := len (where (where .Site.Pages "Section" "courses") "Kind" "page") }}
+<script>var TOTAL_LESSONS = {{ $totalLessons }};</script>
+<script src="/js/profile.js"></script>
+{{ end }}
+{{ end }}

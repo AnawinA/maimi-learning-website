@@ -1,0 +1,43 @@
+{{ define "main" }}
+<section class="hero">
+    <div class="hero-content">
+        <p class="hero-eyebrow">✦ Learn. Level up. Every day.</p>
+        <h1 class="hero-title">MaiMi</h1>
+        <p class="hero-subtitle">Scrollable lessons, gamified progress, and your growth tracked entirely in your
+            browser.</p>
+
+        <div class="hero-image-wrapper">
+            <img src="" alt="MaiMi Learning Platform" id="hero-image" />
+            <p class="hero-image-placeholder">📸 Add your hero image in <code>static/img/</code> and set the
+                <code>src</code></p>
+        </div>
+
+        <div class="hero-cta">
+            <a href="/courses/" class="btn btn-gold" id="start-learning-btn">🚀 Start Learning</a>
+            <a href="/profile/" class="btn btn-ghost">📊 View Progress</a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <h2 class="section-title">Why MaiMi?</h2>
+    <p class="section-subtitle">Everything you need to build real habits.</p>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📖</div>
+            <h3>Read &amp; Learn</h3>
+            <p>Scroll through rich markdown lessons. A sticky bar tracks your reading progress in real-time.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>Gamified Path</h3>
+            <p>A visual course map lights up in gold as you complete lessons — like Duolingo, for any topic.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💾</div>
+            <h3>Your Data, Your Rules</h3>
+            <p>All progress lives in your browser. Export a JSON backup anytime, import it on any device.</p>
+        </div>
+    </div>
+</section>
+{{ end }}

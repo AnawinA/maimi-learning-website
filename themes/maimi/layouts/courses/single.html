@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="lesson-progress-bar-wrap" id="lesson-progress-bar-wrap">
+    <div class="lesson-progress-bar" id="lesson-progress-bar"></div>
+</div>
+
+<article class="lesson-layout">
+    <div class="lesson-meta">
+        <span class="lesson-badge badge-course">{{ .Parent.Title }}</span>
+        <span class="lesson-badge badge-xp">+{{ .Params.xp | default 10 }} XP</span>
+        {{ if .Params.duration }}
+        <span class="lesson-badge badge-course">⏱ {{ .Params.duration }}</span>
+        {{ end }}
+    </div>
+
+    <h1 class="lesson-title">{{ .Title }}</h1>
+
+    <div class="lesson-content">
+        {{ .Content }}
+    </div>
+
+    <div class="lesson-footer">
+        <div>
+            <p class="lesson-footer-hint">Scroll to the end to unlock <strong>Finish Lesson</strong> 👇</p>
+        </div>
+        <button class="btn btn-gold" id="finish-btn" disabled
+            data-lesson-id="{{ .Params.lessonId | default .File.UniqueID }}" data-lesson-title="{{ .Title }}"
+            data-xp="{{ .Params.xp | default 10 }}" data-redirect="{{ .Parent.RelPermalink }}">
+            ✓ Finish Lesson
+        </button>
+    </div>
+</article>
+
+{{ block "scripts" . }}
+<script src="/js/lesson.js"></script>
+{{ end }}
+{{ end }}

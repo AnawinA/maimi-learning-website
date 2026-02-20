@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    {{ partial "navbar.html" . }}
+
+    <main id="main-content">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    {{ partial "celebration-modal.html" . }}
+
+    <script src="/js/nav.js"></script>
+    {{ block "scripts" . }}{{ end }}
+</body>
+
+</html>
